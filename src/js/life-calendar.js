@@ -8,13 +8,13 @@
 		BOX_MARGIN = 3,
 		BOX_SIZE_REAL = BOX_SIZE - BOX_MARGIN,
 
-		TABLE_LEFT = 40,
+		TABLE_LEFT = 80,
 		TABLE_TOP = 70,
 
 		COUNT_WEEKS = 52,
 		COUNT_YEARS = 90,
 
-		CANVAS_WIDTH = 725,
+		CANVAS_WIDTH = 765,
 		CANVAS_HEIHT = 1250,
 
 		DEF_BACKGROUND_COLOR = '#FFF',
@@ -132,7 +132,7 @@
 		ctx.translate(20, TABLE_TOP + 40);
 		ctx.rotate(-Math.PI/2);
 		ctx.translate(-20, -(TABLE_TOP + 40));
-		ctx.fillText(AXIS_LEFT_TEXT, 20, TABLE_TOP + 40);
+		ctx.fillText(AXIS_LEFT_TEXT, -40, TABLE_TOP + 40);
 		ctx.restore();
 
 		// top axis
@@ -141,6 +141,9 @@
 	function drawMetric () {
 		// left metric
 		ctx.textAlign = 'right';
+		
+		bDate = bDate || new Date();
+
 		var birthYear= bDate.getFullYear();
 		
 		
@@ -154,12 +157,20 @@
 
 		// top metric
 		ctx.textAlign = 'left';
-		for (var i = 1; i < COUNT_WEEKS; i++) {
-			if (i % 5 === 0 || i === 1) {
-				ctx.fillText(i, TABLE_LEFT + (i - 1) * BOX_SIZE, TABLE_TOP - 10);
-			}
-			if (i % 13 === 0) {
-				var quarterNumber=i/13;
+		var quarterNumber;
+		for (var i = 1; i <= COUNT_WEEKS; i++) {
+			
+			
+			ctx.font = '9px sans-serif';
+				ctx.fillText(i, TABLE_LEFT + (i - 1) * BOX_SIZE, TABLE_TOP -1 );
+			
+			
+			
+			ctx.font = '13px sans-serif';
+			
+			if (i % 14 === 0 || i === 1) {
+				
+				i==1? quarterNumber=1: quarterNumber=i/14+1;
 				var quarterMetric=(`Q${quarterNumber}`);
 		
 				ctx.fillText(quarterMetric, TABLE_LEFT + (i - 1) * BOX_SIZE, TABLE_TOP - 10);
@@ -167,9 +178,11 @@
 		}
 	}
 	function drawTable (rows, cols, values) {
+		resetCanvas();
 		for (var i = 0; i < rows; i++) {
 			drawRow(i, cols, values[i]);
 		}
+		
 	}
 	function drawRow (row, cols, values) {
 		for (var i = 0; i < cols; i++) {
