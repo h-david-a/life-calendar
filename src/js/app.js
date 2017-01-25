@@ -18,7 +18,7 @@
 				box: {
 					borderColor: '#000',
 					backgroundDefaultColor: '#FFF',
-					backgroundPastDayColor: '#000',
+					backgroundPastDayColor: '#CCC',
 				}
 			},
 			{
@@ -67,8 +67,8 @@
 				},
 				calendar: {
 					title: 'КАЛЕНДАРЬ ЖИЗНИ',
-					left_text: '← Возраст',
-					top_text: 'Недели года →'
+					left_text: '← Возраст (Год)',
+					top_text: 'Неделя года / Квартал →'
 				}
 			},
 			{
@@ -100,8 +100,8 @@
 				},
 				calendar: {
 					title: 'LIFE CALENDAR',
-					left_text: '← Age',
-					top_text: 'Week of the Year →'
+					left_text: '← Age (Year)',
+					top_text: 'Week of the Year / Quarter →'
 				}
 			}
 		];
