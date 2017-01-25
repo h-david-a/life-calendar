@@ -141,9 +141,14 @@
 	function drawMetric () {
 		// left metric
 		ctx.textAlign = 'right';
+		var birthYear= bDate.getFullYear();
+		
+		
 		for (var i = 0; i < COUNT_YEARS; i++) {
 			if (i % 5 === 0) {
-				ctx.fillText(i, TABLE_LEFT - 5, TABLE_TOP + 10 + i * BOX_SIZE);
+				var yearMetric=(`${i} (${birthYear+i})`);
+		
+				ctx.fillText(yearMetric, TABLE_LEFT - 5, TABLE_TOP + 10 + i * BOX_SIZE);
 			}
 		}
 
@@ -152,6 +157,12 @@
 		for (var i = 1; i < COUNT_WEEKS; i++) {
 			if (i % 5 === 0 || i === 1) {
 				ctx.fillText(i, TABLE_LEFT + (i - 1) * BOX_SIZE, TABLE_TOP - 10);
+			}
+			if (i % 13 === 0) {
+				var quarterNumber=i/13;
+				var quarterMetric=(`Q${quarterNumber}`);
+		
+				ctx.fillText(quarterMetric, TABLE_LEFT + (i - 1) * BOX_SIZE, TABLE_TOP - 10);
 			}
 		}
 	}
