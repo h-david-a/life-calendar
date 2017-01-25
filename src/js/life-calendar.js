@@ -147,11 +147,11 @@
 		var birthYear= bDate.getFullYear();
 		
 		
-		for (var i = 0; i < COUNT_YEARS; i++) {
-			if (i % 5 === 0) {
+		for (var i = 1; i <= COUNT_YEARS; i++) {
+			if (i % 5 === 0 || i===1 ) {
 				var yearMetric=(`${i} (${birthYear+i})`);
 		
-				ctx.fillText(yearMetric, TABLE_LEFT - 5, TABLE_TOP + 10 + i * BOX_SIZE);
+				ctx.fillText(yearMetric, TABLE_LEFT - 5, TABLE_TOP + 10 + (i-1) * BOX_SIZE);
 			}
 		}
 
